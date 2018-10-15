@@ -1,4 +1,14 @@
 /**
+ * Describes the information that will be passed to analytics for tracking.
+ */
+interface ITrackingInformation {
+	/**
+	 * The type of the data sent to analytics service - initalization data, feature to be tracked, error to be tracked, etc.
+	 */
+	type: TrackingTypes
+}
+
+/**
  * Describes if the user allows to be tracked.
  */
 interface IAcceptUsageReportingInformation extends ITrackingInformation {
@@ -94,4 +104,24 @@ interface IGoogleAnalyticsProvider {
 	 * @returns {Promise<void>}
 	 */
 	trackHit(data: IGoogleAnalyticsData): Promise<void>;
+}
+
+/**
+ * Describes message that needs to be logged in the analytics logging file.
+ */
+interface IAnalyticsLoggingMessage {
+	message: string;
+	type?: AnalyticsLoggingMessageType
+}
+
+/**
+ * Describes methods to get local logs from analytics tracking.
+ */
+interface IAnalyticsLoggingService {
+	/**
+	 * Logs specified message to the file specified with `--analyticsLogFile`.
+	 * @param {IAnalyticsLoggingMessage} analyticsLoggingMessage The message that has to be written to the logs file.
+	 * @returns {void}
+	 */
+	logData(analyticsLoggingMessage: IAnalyticsLoggingMessage): void;
 }

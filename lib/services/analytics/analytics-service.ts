@@ -123,7 +123,8 @@ export class AnalyticsService extends AnalyticsServiceBase {
 			const broker = this.$childProcess.spawn("node",
 				[
 					path.join(__dirname, "analytics-broker-process.js"),
-					this.$staticConfig.PATH_TO_BOOTSTRAP
+					this.$staticConfig.PATH_TO_BOOTSTRAP,
+					this.$options.analyticsLogFile
 				],
 				{
 					stdio: ["ignore", "ignore", "ignore", "ipc"],

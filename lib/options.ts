@@ -114,6 +114,7 @@ export class Options {
 			default: { type: OptionType.Boolean },
 			count: { type: OptionType.Number },
 			hooks: { type: OptionType.Boolean, default: true },
+			analyticsLogFile: { type: OptionType.String },
 			link: { type: OptionType.Boolean, default: false }
 		};
 	}
